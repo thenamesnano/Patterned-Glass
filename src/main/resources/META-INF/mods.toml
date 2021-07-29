@@ -1,0 +1,32 @@
+# This is an patternedglass mods.toml file.
+modLoader="javafml"
+loaderVersion="[36,)"
+license="GNU GPLv3"
+issueTrackerURL=""
+
+[[mods]]
+modId="patternedglass"
+version="1.16.5-1.0.2"
+displayName="Patterned Glass"
+updateJSONURL=""
+displayURL="https://www.curseforge.com/minecraft/mc-mods/patterned-glass"
+logoFile="icon.png"
+credits="Thanks to noxzos_ for the idea on Minecraft Forum."
+authors="Nano (thenamesnano)"
+description='''
+A mod that adds in patterned glass.
+'''
+
+[[dependencies.patternedglass]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.patternedglass]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
