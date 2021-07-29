@@ -1,0 +1,6 @@
+{
+  "parent": "patternedglass:block/template_patterned_glass",
+  "textures": {
+    "pattern": "patternedglass:blocks/cyan_patterned_glass"
+  }
+}

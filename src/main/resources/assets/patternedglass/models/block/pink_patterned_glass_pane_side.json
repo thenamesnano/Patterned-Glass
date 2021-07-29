@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_side",
+  "textures": {
+    "pane": "patternedglass:blocks/pink_patterned_glass",
+    "edge": "patternedglass:blocks/pink_patterned_glass_pane_top"
+  }
+}
