@@ -6,7 +6,7 @@
 <div></div>
 
 <h3>About Patterned Glass</h3>
-<p>Soundtrack Discs was an idea originally posted by user noxzos_ on the Minecraft Forum.
+<p>Patterned Glass was an idea originally posted by user noxzos_ on the Minecraft Forum.
 I was looking for new mod ideas when I happened upon the post and decided to take on the project.
 The mod adds in stained-glass variants with glazed terracotta patterns on them.  They can be rotated to
 make vanilla+ style stained-glass mosaics.</p>
