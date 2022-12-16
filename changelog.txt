@@ -1,7 +1,7 @@
 Patterned Glass (Forge) Changelog
 https://github.com/thenamesnano/Patterned-Glass
 
-1.0
+1.1
 ====
  - 1.1.0 Updated Forge version, package structure, meta, repository
  
