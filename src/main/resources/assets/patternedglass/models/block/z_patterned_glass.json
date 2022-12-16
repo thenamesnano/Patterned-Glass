@@ -1,6 +1,0 @@
-{
-  "parent": "patternedglass:block/template_patterned_glass",
-  "textures": {
-    "pattern": "patternedglass:blocks/z_patterned_glass"
-  }
-}

@@ -11,14 +11,17 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.16.5-1.0.2'
-group = 'com.thenamesnano.patternedglass'
+String semver = "${version_major}.${version_minor}.${version_patch}"
+
+version = "${semver}"
+group = 'com.nanosplace.patternedglass'
 archivesBaseName = 'patternedglass'
+
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: '1.16.5'
+    mappings channel: 'official', version: "${minecraft_version}"
     
     runs {
         client {
@@ -61,7 +64,26 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.1.32'
+    minecraft([
+            group  : "${project.forge_group}",
+            name   : 'forge',
+            version: "${project.minecraft_version}-${project.forge_version}"
+    ])
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api") // Adds JEI API as a compile dependency
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
+}
+
+repositories {
+    maven {
+        // location of the maven that hosts JEI files
+        name = "Progwml6maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.k-4u.nl"
+    }
 }
 
 jar {
@@ -69,7 +91,7 @@ jar {
         attributes([
             "Specification-Title": "patternedglass",
             "Specification-Vendor": "thenamesnano",
-            "Specification-Version": "1",
+            "Specification-Version": "${semver}",
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
             "Implementation-Vendor" :"thenamesnano",
