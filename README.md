@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/thenamesnano/Patterned-Glass/blob/forge-1.16.5/src/main/resources/patternedglass.png"/>
+  <img src="https://github.com/thenamesnano/Patterned-Glass/blob/forge-1.16/src/main/resources/patternedglass.png"/>
 </p>
 <h1 align="center">Patterned Glass</h1>
 <h4 align="center">~Vanilla+ Style Stained-Glass Mosaics~</h4>
