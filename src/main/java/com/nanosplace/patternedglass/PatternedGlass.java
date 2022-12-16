@@ -54,40 +54,7 @@ public class PatternedGlass {
 
     private void setup(final FMLCommonSetupEvent event) {}
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.WHITE_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.ORANGE_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.MAGENTA_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIGHT_BLUE_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.YELLOW_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIME_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.PINK_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.GRAY_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIGHT_GRAY_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.CYAN_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.PURPLE_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BLUE_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BROWN_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.GREEN_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.RED_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BLACK_PATTERNED_GLASS.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.WHITE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.ORANGE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.MAGENTA_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIGHT_BLUE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.YELLOW_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIME_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.PINK_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.GRAY_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIGHT_GRAY_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.CYAN_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.PURPLE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BLUE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BROWN_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.GREEN_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.RED_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BLACK_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-    }
+    private void doClientStuff(final FMLClientSetupEvent event) {}
 
     private void enqueueIMC(final InterModEnqueueEvent event) {}
 

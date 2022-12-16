@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/template_glass_pane_noside_alt",
+  "parent": "patternedglass:block/template_glass_pane_noside_alt",
   "textures": {
     "pane": "patternedglass:block/pink_patterned_glass"
   }

@@ -3,6 +3,7 @@
     "textures": {
         "particle": "#pattern"
     },
+    "render_type":"translucent",
     "display": {
         "firstperson_righthand": {
             "rotation": [ 0, 135, 0 ],

@@ -1,15 +1,8 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '5.1.+'
 }
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
 
 String semver = "${version_major}.${version_minor}.${version_patch}"
 
@@ -69,8 +62,8 @@ dependencies {
             name   : 'forge',
             version: "${project.minecraft_version}-${project.forge_version}"
     ])
-    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api") // Adds JEI API as a compile dependency
-    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
+    //compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api") // Adds JEI API as a compile dependency
+    //runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
 }
 
 repositories {

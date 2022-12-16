@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/template_glass_pane_side_alt",
+  "parent": "patternedglass:block/template_glass_pane_side_alt",
   "textures": {
     "pane": "patternedglass:block/green_patterned_glass",
     "edge": "patternedglass:block/green_patterned_glass_pane_top"
