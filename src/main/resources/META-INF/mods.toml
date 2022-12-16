@@ -1,6 +1,6 @@
 #  patternedglass mods.toml
 modLoader="javafml"
-loaderVersion="[36,)"
+loaderVersion="[40,)"
 license="LGPL-3.0"
 issueTrackerURL="https://github.com/thenamesnano/Patterned-Glass/issues"
 
@@ -20,13 +20,13 @@ A mod that adds in patterned glass.
 [[dependencies.patternedglass]]
     modId="forge"
     mandatory=true
-    versionRange="[36,)"
+    versionRange="[40,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.patternedglass]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.5,1.17)"
+    versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"

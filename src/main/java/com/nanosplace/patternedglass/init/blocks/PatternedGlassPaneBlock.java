@@ -18,26 +18,24 @@
 */
 package com.nanosplace.patternedglass.init.blocks;
 
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityType;
-import net.minecraft.item.DyeColor;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StainedGlassPaneBlock;
+import net.minecraft.world.level.material.Material;
 
-public class PatternedGlassPaneBlock extends PaneBlock implements IBeaconBeamColorProvider {
+public class PatternedGlassPaneBlock extends StainedGlassPaneBlock {
 
     private final DyeColor color;
 
     public PatternedGlassPaneBlock(DyeColor color) {
-        super(Properties.of(Material.GLASS)
+        super(color, Properties.of(Material.GLASS)
                 .strength(0.3F)
                 .sound(SoundType.GLASS)
                 .noOcclusion()
-                .isValidSpawn(PatternedGlassPaneBlock::never)
-                .isRedstoneConductor(PatternedGlassPaneBlock::never)
-                .isSuffocating(PatternedGlassPaneBlock::never)
-                .isViewBlocking(PatternedGlassPaneBlock::never));
+                .isValidSpawn((state, getter, pos, entity) -> false)
+                .isRedstoneConductor((state, getter, pos) -> false)
+                .isSuffocating((state, getter, pos) -> false)
+                .isViewBlocking((state, getter, pos) -> false));
         this.color = color;
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(NORTH, Boolean.valueOf(false))
@@ -46,14 +44,6 @@ public class PatternedGlassPaneBlock extends PaneBlock implements IBeaconBeamCol
                 .setValue(WEST, Boolean.valueOf(false))
                 .setValue(WATERLOGGED, Boolean.valueOf(false)));
 
-    }
-
-    private static boolean never(BlockState state, IBlockReader reader, BlockPos pos) {
-        return false;
-    }
-
-    private static boolean never(BlockState state, IBlockReader reader, BlockPos pos, EntityType<?> entityType) {
-        return false;
     }
 
     public DyeColor getColor() {

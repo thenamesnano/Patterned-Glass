@@ -19,8 +19,8 @@
 package com.nanosplace.patternedglass.init.blocks;
 
 import com.nanosplace.patternedglass.PatternedGlass;
-import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.BlockItem;
 
 public class BlockItemBase extends BlockItem {
 

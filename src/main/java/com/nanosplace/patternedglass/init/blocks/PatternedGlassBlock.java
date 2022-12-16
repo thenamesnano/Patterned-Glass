@@ -18,27 +18,22 @@
 */
 package com.nanosplace.patternedglass.init.blocks;
 
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.PushReaction;
-import net.minecraft.entity.EntityType;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.DyeColor;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class PatternedGlassBlock extends Block implements IBeaconBeamColorProvider {
+public class PatternedGlassBlock extends AbstractGlassBlock implements BeaconBeamBlock {
 
     private final DyeColor color;
     static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -48,19 +43,19 @@ public class PatternedGlassBlock extends Block implements IBeaconBeamColorProvid
                 .strength(0.3F)
                 .sound(SoundType.GLASS)
                 .noOcclusion()
-                .isValidSpawn(PatternedGlassBlock::never)
-                .isRedstoneConductor(PatternedGlassBlock::never)
-                .isSuffocating(PatternedGlassBlock::never)
-                .isViewBlocking(PatternedGlassBlock::never));
+                .isValidSpawn((state, getter, pos, entity) -> false)
+                .isRedstoneConductor((state, getter, pos) -> false)
+                .isSuffocating((state, getter, pos) -> false)
+                .isViewBlocking((state, getter, pos) -> false));
 
         this.color = color;
     }
 
-    private static boolean never(BlockState state, IBlockReader reader, BlockPos pos) {
+    private static boolean never(BlockState state, LevelReader reader, BlockPos pos) {
         return false;
     }
 
-    private static boolean never(BlockState state, IBlockReader reader, BlockPos pos, EntityType<?> entityType) {
+    private static boolean never(BlockState state, LevelReader reader, BlockPos pos, EntityType<?> entityType) {
         return false;
     }
 
@@ -72,37 +67,37 @@ public class PatternedGlassBlock extends Block implements IBeaconBeamColorProvid
         return state.rotate(mirror.getRotation(state.getValue(FACING)));
     }
 
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> stateBuilder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
         stateBuilder.add(FACING);
     }
 
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
-    @Override
+    /*@Override
     @OnlyIn(Dist.CLIENT)
     public boolean skipRendering(BlockState state1, BlockState state2, Direction dir) {
         return state2.is(this) ? true : super.skipRendering(state1, state2, dir);
-    }
+    }*/
 
-    @Override
-    public PushReaction getPistonPushReaction(BlockState state) {
+    /*@Override
+    public PushReaction getPistonPushReaction() {
         return PushReaction.PUSH_ONLY;
-    }
+    }*/
 
-    @Override
-    public VoxelShape getVisualShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
-        return VoxelShapes.empty();
-    }
+    /*@Override
+    public VoxelShape getVisualShape(BlockGetter getter, BlockPos pos, CollisionContext context) {
+        return Shapes.empty();
+    }*/
 
     @OnlyIn(Dist.CLIENT)
-    public float getShadeBrightness(BlockState state, IBlockReader reader, BlockPos pos) {
+    public float getShadeBrightness(BlockState state, LevelReader reader, BlockPos pos) {
         return 1.0F;
     }
 
     @Override
-    public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
+    public boolean propagatesSkylightDown(BlockState state, BlockGetter getter, BlockPos pos) {
         return false;
     }
 

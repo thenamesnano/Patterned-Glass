@@ -19,19 +19,17 @@
 package com.nanosplace.patternedglass;
 
 import com.nanosplace.patternedglass.util.RegistryHandler;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -40,7 +38,7 @@ import org.apache.logging.log4j.Logger;
 public class PatternedGlass {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "patternedglass";
-    public static final ItemGroup PATTERNED_GLASS_BLOCKS = new ItemGroup("patternedglass_blocks") {
+    public static final CreativeModeTab PATTERNED_GLASS_BLOCKS = new CreativeModeTab("patternedglass_blocks") {
         @Override public ItemStack makeIcon() { return new ItemStack(RegistryHandler.BLACK_PATTERNED_GLASS.get()); }};
 
     // -4020941818228131454
@@ -57,46 +55,46 @@ public class PatternedGlass {
     private void setup(final FMLCommonSetupEvent event) {}
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        RenderTypeLookup.setRenderLayer(RegistryHandler.WHITE_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.ORANGE_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.MAGENTA_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.LIGHT_BLUE_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.YELLOW_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.LIME_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.PINK_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.GRAY_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.LIGHT_GRAY_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.CYAN_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.PURPLE_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.BLUE_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.BROWN_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.GREEN_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.RED_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.BLACK_PATTERNED_GLASS.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.WHITE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.ORANGE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.MAGENTA_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.LIGHT_BLUE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.YELLOW_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.LIME_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.PINK_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.GRAY_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.LIGHT_GRAY_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.CYAN_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.PURPLE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.BLUE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.BROWN_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.GREEN_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.RED_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(RegistryHandler.BLACK_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.WHITE_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.ORANGE_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.MAGENTA_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIGHT_BLUE_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.YELLOW_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIME_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.PINK_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.GRAY_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIGHT_GRAY_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.CYAN_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.PURPLE_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BLUE_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BROWN_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.GREEN_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.RED_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BLACK_PATTERNED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.WHITE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.ORANGE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.MAGENTA_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIGHT_BLUE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.YELLOW_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIME_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.PINK_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.GRAY_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.LIGHT_GRAY_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.CYAN_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.PURPLE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BLUE_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BROWN_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.GREEN_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.RED_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(RegistryHandler.BLACK_PATTERNED_GLASS_PANE.get(), RenderType.translucent());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {}
 
     private void processIMC(final InterModProcessEvent event) {}
 
-    @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event) {}
+    /*@SubscribeEvent
+    public void onServerStarting(FMLServerStartingContext event) {}*/
 
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {}
