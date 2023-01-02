@@ -19,17 +19,11 @@
 package com.nanosplace.patternedglass;
 
 import com.nanosplace.patternedglass.util.RegistryHandler;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,30 +32,21 @@ import org.apache.logging.log4j.Logger;
 public class PatternedGlass {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "patternedglass";
-    public static final CreativeModeTab PATTERNED_GLASS_BLOCKS = new CreativeModeTab("patternedglass_blocks") {
-        @Override public ItemStack makeIcon() { return new ItemStack(RegistryHandler.BLACK_PATTERNED_GLASS.get()); }};
 
     // -4020941818228131454
     public PatternedGlass() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        eventBus.addListener(this::setup);
-        eventBus.addListener(this::doClientStuff);
 
         RegistryHandler.init(eventBus);
+        eventBus.addListener(this::buildContents);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event) {}
-
-    private void doClientStuff(final FMLClientSetupEvent event) {}
-
-    private void enqueueIMC(final InterModEnqueueEvent event) {}
-
-    private void processIMC(final InterModProcessEvent event) {}
-
-    /*@SubscribeEvent
-    public void onServerStarting(FMLServerStartingContext event) {}*/
+    @SubscribeEvent
+    public void buildContents(CreativeModeTabEvent.Register event) {
+        RegistryHandler.registerCreativeTab(event);
+    }
 
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {}

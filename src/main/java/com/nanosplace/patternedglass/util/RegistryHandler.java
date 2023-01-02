@@ -20,9 +20,13 @@ package com.nanosplace.patternedglass.util;
 
 import com.nanosplace.patternedglass.PatternedGlass;
 import com.nanosplace.patternedglass.init.blocks.*;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -36,6 +40,21 @@ public class RegistryHandler {
     public static void init(IEventBus eventBus) {
         ITEMS.register(eventBus);
         BLOCKS.register(eventBus);
+    }
+
+    public static void registerCreativeTab(CreativeModeTabEvent.Register event) {
+        event.registerCreativeModeTab(new ResourceLocation(PatternedGlass.MOD_ID, "blocks"), builder ->
+                builder.title(Component.translatable("itemGroup." + PatternedGlass.MOD_ID + ".blocks"))
+                        .icon(() -> new ItemStack(RegistryHandler.BLACK_PATTERNED_GLASS.get()))
+                        .displayItems((enabledFlags, populator, hasPermissions) -> {
+                            for (RegistryObject<Item> item : ITEMS.getEntries()) {
+                                populator.accept(item.get());
+                            }
+                            for (RegistryObject<Block> block : BLOCKS.getEntries()) {
+                                populator.accept(block.get());
+                            }
+                        })
+        );
     }
 
     // Blocks ----------------------------------------------------------------------------------------------------------

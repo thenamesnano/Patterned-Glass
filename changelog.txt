@@ -1,6 +1,10 @@
 Patterned Glass (Forge) Changelog
 https://github.com/thenamesnano/Patterned-Glass
 
+3.1.0
+====
+ - 3.1.0 Initial port to 1.19.3
+
 3.0
 ====
  - 3.0.0 Initial port to 1.19.2

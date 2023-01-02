@@ -18,14 +18,13 @@
 */
 package com.nanosplace.patternedglass.init.blocks;
 
-import com.nanosplace.patternedglass.PatternedGlass;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.BlockItem;
 
 public class BlockItemBase extends BlockItem {
 
     public BlockItemBase(Block block) {
-        super(block, new Properties().tab(PatternedGlass.PATTERNED_GLASS_BLOCKS));
+        super(block, new Properties());
     }
 
 }
