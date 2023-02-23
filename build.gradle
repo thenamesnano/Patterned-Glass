@@ -8,7 +8,7 @@ String semver = "${version_major}.${version_minor}.${version_patch}"
 
 version = "${semver}"
 group = 'com.nanosplace.patternedglass'
-archivesBaseName = 'patternedglass'
+archivesBaseName = "patternedglass-forge-${minecraft_version}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 

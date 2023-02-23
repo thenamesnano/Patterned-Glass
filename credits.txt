@@ -3,3 +3,4 @@ Patterned Glass: Credits & Thanks
 thenamesnano - Initial implementation
 thefirethirteen - Help with Fabric port
 ReviversMC - Maintaining the Fabric verison of the mod
+sanduicheirainox - pt_br translation

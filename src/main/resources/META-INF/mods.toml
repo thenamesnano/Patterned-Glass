@@ -11,7 +11,8 @@ displayName="Patterned Glass"
 updateJSONURL="https://gist.githubusercontent.com/thenamesnano/a78c86f9a56a60dcfb9aff7a51061963/raw"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/patterned-glass"
 logoFile= "patternedglass.png"
-credits="Thanks to noxzos_ for the idea on Minecraft Forum and the ReviversMC Team for maintaining the Fabric version."
+credits='''Thanks to noxzos_ for the idea on Minecraft Forum and the ReviversMC Team for maintaining the Fabric version.
+Thank you to our translators: sanduicheirainox'''
 authors="Nano (thenamesnano)"
 description='''
 A mod that adds in patterned glass.
