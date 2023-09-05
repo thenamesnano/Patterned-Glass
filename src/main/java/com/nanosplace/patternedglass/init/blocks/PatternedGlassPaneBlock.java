@@ -21,14 +21,13 @@ package com.nanosplace.patternedglass.init.blocks;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StainedGlassPaneBlock;
-import net.minecraft.world.level.material.Material;
 
 public class PatternedGlassPaneBlock extends StainedGlassPaneBlock {
 
     private final DyeColor color;
 
     public PatternedGlassPaneBlock(DyeColor color) {
-        super(color, Properties.of(Material.GLASS)
+        super(color, Properties.of()
                 .strength(0.3F)
                 .sound(SoundType.GLASS)
                 .noOcclusion()

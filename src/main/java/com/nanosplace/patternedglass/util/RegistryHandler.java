@@ -20,13 +20,13 @@ package com.nanosplace.patternedglass.util;
 
 import com.nanosplace.patternedglass.PatternedGlass;
 import com.nanosplace.patternedglass.init.blocks.*;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -36,25 +36,12 @@ public class RegistryHandler {
 
     public static DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, PatternedGlass.MOD_ID);
     public static DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, PatternedGlass.MOD_ID);
+    public static DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, PatternedGlass.MOD_ID);
 
     public static void init(IEventBus eventBus) {
         ITEMS.register(eventBus);
         BLOCKS.register(eventBus);
-    }
-
-    public static void registerCreativeTab(CreativeModeTabEvent.Register event) {
-        event.registerCreativeModeTab(new ResourceLocation(PatternedGlass.MOD_ID, "blocks"), builder ->
-                builder.title(Component.translatable("itemGroup." + PatternedGlass.MOD_ID + ".blocks"))
-                        .icon(() -> new ItemStack(RegistryHandler.BLACK_PATTERNED_GLASS.get()))
-                        .displayItems((enabledFlags, populator, hasPermissions) -> {
-                            for (RegistryObject<Item> item : ITEMS.getEntries()) {
-                                populator.accept(item.get());
-                            }
-                            for (RegistryObject<Block> block : BLOCKS.getEntries()) {
-                                populator.accept(block.get());
-                            }
-                        })
-        );
+        TABS.register(eventBus);
     }
 
     // Blocks ----------------------------------------------------------------------------------------------------------
@@ -191,4 +178,19 @@ public class RegistryHandler {
             () -> new BlockItemBase(RED_PATTERNED_GLASS_PANE.get()));
     public static final RegistryObject<Item> BLACK_PATTERNED_GLASS_PANE_ITEM = ITEMS.register("black_patterned_glass_pane",
             () -> new BlockItemBase(BLACK_PATTERNED_GLASS_PANE.get()));
+
+
+    // Creative Tab ----------------------------------------------------------------------------------------------------
+    public static final RegistryObject<CreativeModeTab> PATTERNED_GLASS_BLOCKS = TABS.register("blocks",() -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup." + PatternedGlass.MOD_ID + ".blocks"))
+            .icon(() -> new ItemStack(RegistryHandler.BLACK_PATTERNED_GLASS.get()))
+            .displayItems((displayParameters, output) -> {
+                for (RegistryObject<Item> item : ITEMS.getEntries()) {
+                    output.accept(item.get());
+                }
+                for (RegistryObject<Block> block : BLOCKS.getEntries()) {
+                    output.accept(block.get());
+                }
+            })
+            .build());
 }

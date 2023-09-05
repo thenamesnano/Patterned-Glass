@@ -29,7 +29,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -39,7 +38,7 @@ public class PatternedGlassBlock extends AbstractGlassBlock implements BeaconBea
     static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     public PatternedGlassBlock(DyeColor color) {
-        super(Block.Properties.of(Material.GLASS)
+        super(Block.Properties.of()
                 .strength(0.3F)
                 .sound(SoundType.GLASS)
                 .noOcclusion()

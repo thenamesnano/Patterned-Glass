@@ -20,9 +20,7 @@ package com.nanosplace.patternedglass;
 
 import com.nanosplace.patternedglass.util.RegistryHandler;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
@@ -38,14 +36,8 @@ public class PatternedGlass {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         RegistryHandler.init(eventBus);
-        eventBus.addListener(this::buildContents);
 
         MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    @SubscribeEvent
-    public void buildContents(CreativeModeTabEvent.Register event) {
-        RegistryHandler.registerCreativeTab(event);
     }
 
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
